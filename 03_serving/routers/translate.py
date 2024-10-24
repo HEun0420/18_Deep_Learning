@@ -10,4 +10,6 @@ async def translate(request: TranslationRequest):
     
     result = perform_translation(request.text, request.lang)
     
-    return {"transltaed_text": result}
+    print(result)
+    
+    return {"result": result}
