@@ -51,16 +51,13 @@ def analyze_image(image_url: str, locations: str):
     most_similar_location = original_choices[max_index]
     similarity = probs[0, max_index].item() * 100
     
-    # 결과 메시지 생성
+    message = ''
     if similarity <= 75:
-        return {
-            "message": (
-                f"입력하신 지역들은 이미지와 유사도가 낮아 정확하게 찾아줄 수는 없습니다."
-                f"\n그러나 이 이미지는 현재 입력하신 지역 중 {most_similar_location}가 가장 유사도가 높습니다."
-                f" 유사도는 {similarity:.2f}%입니다."
-            )
-        }
+        message = f"입력하신 지역들은 이미지와 유사도가 낮아 정확하게 찾아줄 수는 없습니다.\n그러나 이 이미지는 현재 입력하신 지역 중 {most_similar_location}가 가장 유사도가 높습니다.\n유사도는 {similarity:.2f}%입니다."
     else:
-        return {
-            "message": f"이 이미지는 {most_similar_location}가 가장 유사도가 높습니다. 유사도는 {similarity:.2f}%입니다."
-        }
+        message = f"이 이미지는 {most_similar_location}가 가장 유사도가 높습니다. 유사도는 {similarity:.2f}%입니다."
+    
+    # 결과 메시지 생성
+    return message
+        
+    

@@ -4,3 +4,7 @@ from pydantic import BaseModel
 class AnalyzeRequest(BaseModel):
     image_url: str
     locations: str
+
+
+class ResponseDTO(BaseModel):
+    message: str

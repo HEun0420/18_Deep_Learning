@@ -122,7 +122,7 @@
                 const imageUrl = $('#image_url').val();
                 const locations = $('#locations').val();
                 $.ajax({
-                    url: '/analyze/',
+                    url: '/analyze',
                     method: 'POST',
                     contentType: 'application/x-www-form-urlencoded',
                     data: {
@@ -131,12 +131,12 @@
                     },
                     success: function(response) {
                         $('#resultMessage').text(response.message);
-                        $('#submittedImage').attr('src', imageUrl).show(); // Display the submitted image
+                        $('#submittedImage').attr('src', imageUrl).show(); 
                         $('#result').show();  
                     },
                     error: function(xhr, status, error) {
                         $('#resultMessage').text('오류가 발생했습니다. 다시 시도해주세요.');
-                        $('#submittedImage').hide(); // Hide the image in case of error
+                        $('#submittedImage').hide(); 
                         $('#result').show();
                     }
                 });

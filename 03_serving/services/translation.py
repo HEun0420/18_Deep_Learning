@@ -37,4 +37,4 @@ def perform_translation(text: str, lang: str) -> str:
     # 번역 결과 decoding
     translated_text = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
     
-    return {"translated_text" : translated_text[0]}
+    return translated_text[0]
